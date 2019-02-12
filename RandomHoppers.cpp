@@ -23,17 +23,15 @@ main ()
         for (i=0; i<10; i++)
         {
             hopper[0]=1;    //first space for the hoppers is always occupied.
-            if (hopper[i]==1){
-                if(hopper[i+1]==0){             //if there is a hopper in a space and the next space is empty
-                    if(rand()%1000 > 500){      //and the pseudo-random number is greater than 500
-                        hopper[i]=0;            //the hopper will move forward by one space
-                        hopper[i+1]=1;
+            if (hopper[i]==1 && hopper[i+1]==0){ //if there is a hopper in a space and the next space is empty
+                if(rand()%1000 > 500){
+                        hopper[i]=0;            //and the pseudo-random number is greater than 500
+                        hopper[i+1]=1;          //the hopper will move forward by one space
                         i++;                    //we i++ to prevent a hopper making more than 1 move per iteration.
                     }
                     else{
                         hopper[i]=1;            //if the random number is less than 500 nothing happens. The hopper stays where it is.
                         }
-                }
             }
         }
         for(i=0; i<10; i++){
